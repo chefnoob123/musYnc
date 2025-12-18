@@ -11,7 +11,7 @@ import (
 	"github.com/gopxl/beep/speaker"
 )
 
-func main() {
+func decode() {
 	f, err := os.Open("/home/navit/Music/Andrea Vanzo - Amélie x Soulmate.flac")
 	if err != nil {
 		log.Fatal(err)
@@ -32,4 +32,8 @@ func main() {
 		done <- true
 	})))
 	<-done
+}
+
+func main() {
+	decode()
 }

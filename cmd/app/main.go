@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	f, err := os.Open("/home/navit/Music/Andrea Vanzo - Amélie x Soulmate.flac")
+	f, err := os.Open("/home/navit/Music/Lana Del Rey - Cinnamon Girl.flac")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -22,8 +22,8 @@ func main() {
 	}
 	defer streamer.Close()
 
-	sr := format.SampleRate * 2
-	resampled := beep.Resample(4, format.SampleRate, sr, streamer)
+	sr := format.SampleRate * 1
+	resampled := beep.Resample(4, sr, sr, streamer)
 
 	speaker.Init(sr, sr.N(time.Second/10))
 	done := make(chan bool)
